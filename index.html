@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0f356659c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div class="header">
+        <div class="container">
+            <nav>
+                <img src="images/originalname (4).png" class="logo">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Frontend Devloper</p>
+                <h1>hi, I'm <span> Bhimesh</span> <br>Chouhan From Indore</h1>
+            </div>
+        </div>
+    </div>
+
+     <!--     About section      -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="subtitle">About Me</h1>
+                    <p>Fronted Developer with Medium knowledge on building websites,In the mean time, I enjoy solving Data Structures and Algorithms based problrem ,also i love traveling</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+
+                    </div>
+                    <div class="tab-contents active-tab " id="skills">
+                        <ul>
+                            <li><span> Web Devlopment</span><br>Designing Web pages</li>
+                            <li><span> languages</span><br>C,C++,Java</li>
+                            <li><span> Database</span><br>I know SQl</li>
+                        </ul>
+                    </div>
+                   
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2021-Current</span><br>B.tech (CSE) from MU Indore</li>
+                            <li><span> 2021</span><br>12th from GVS kanapur</li>
+                            <li><span>2019</span><br>10th from GVS kanapur</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+       <!-- --------------Services------------ -->
+        
+       <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam temporibus perferendis ipsum culpa. Eligendi vero quo distinctio maxime deserunt harum?</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>Web Devlopment</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam temporibus perferendis ipsum culpa. Eligendi vero quo distinctio maxime deserunt harum?</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store"></i>
+                    <h2>App Devlopment</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam temporibus perferendis ipsum culpa. Eligendi vero quo distinctio maxime deserunt harum?</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+       </div>
+
+<!-- ---------------Contact --------------- -->
+
+ <div id="contact">
+   <div class="container">
+  <div class="row">
+    <div class="contact-left">
+        <h1 class="subtitle">Contact Me</h1>
+        <p><i class="fa-sharp fa-regular fa-paper-plane"></i>bhimeshsinghchouhan0649@gmail.com</p>
+        <p><i class="fa-sharp fa-solid fa-phone"></i>6261476967</p>
+        <div class="social-icon">
+            <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></i></a>
+            <a href=""><i class="fa-brands fa-linkedin"></i></i></a>
+
+        </div>
+        <a href="images\Resume_2023-01-26_1901366.pdf"  download class="btn">Download CV</a>
+    </div>
+    <div class="contact-right">
+        <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Your Name " required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="Message" id="" rows="6" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <span id="msg"></span>
+
+    </div>
+   </div>
+ </div>
+ </div>
+
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+        
+    </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxTC-w1SNfNL__QgqZ6DJdq9flSUgwkw17BRNpAhD5WJVhA9GL2spHCVnt-JZ_WuFRf/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg");
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => 
+        {
+            msg.innerHTML ="Message sent succrsfully !";
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset();
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
